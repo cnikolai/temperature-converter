@@ -6,13 +6,16 @@ import org.junit.jupiter.api.Test;
 
 class TemperatureConverterTest {
 
+  static final double[] celsiusTemperatures = {-40,0,100,50};
+  static final double[] fahrenheitTemperatures = {-40,32,212,122};
+
   @Test
   void convertC2F() {
-    double celsius = -40;
-    double expectedFahrenheit = -40;
-    double actualFahrenheit = TemperatureConverter.convertC2F(celsius);
-    if (expectedFahrenheit != actualFahrenheit) {
-      fail();
+    for (int i = 0; i < celsiusTemperatures.length; i++) {
+      double celsius = celsiusTemperatures[i];
+      double expectedFahrenheit = fahrenheitTemperatures[i];
+      double actualFahrenheit = TemperatureConverter.convertC2F(celsius);
+      assertEquals(expectedFahrenheit, actualFahrenheit);
     }
   }
 }
